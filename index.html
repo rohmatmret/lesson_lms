@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lessons</title>
+    <link rel="favicon" href="assets/frontend/default/img/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/frontend/default/img/icons/icon.png">
+    <link rel="stylesheet" href="assets/frontend/default/css/jquery.webui-popover.min.css">
+    <link rel="stylesheet" href="assets/frontend/default/css/select2.min.css">
+    <link rel="stylesheet" href="assets/frontend/default/css/slick.css">
+    <link rel="stylesheet" href="assets/frontend/default/css/slick-theme.css">
+    <!-- font awesome 5 -->
+    <link rel="stylesheet" href="assets/frontend/default/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+
+    <link rel="stylesheet" href="assets/frontend/default/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/frontend/default/css/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="assets/frontend/default/css/main.css">
+    <link rel="stylesheet" href="assets/frontend/default/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/global/toastr/toastr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.css" />
+    <link rel="stylesheet" href="assets/lessons/css/custom.css">
+
+    <script src="assets/backend/js/jquery-3.3.1.min.js"></script>
+    <!-- Lesson page specific styles are here -->
+    <style type="text/css">
+        body {
+            background-color: #fff !important;
+        }
+        
+        .card {
+            border-radius: 0px !important;
+            background-color: #f7f8fa !important;
+            border: 0px !important;
+        }
+        
+        .course_card {
+            padding: 0px;
+            background-color: #F7F8FA;
+        }
+        
+        .course_container {
+            background-color: #fff !important;
+        }
+        
+        .course_col {
+            padding: 0px;
+        }
+        
+        .course_header_col {
+            background-color: #29303b;
+            color: #fff;
+            padding: 15px 10px 10px;
+        }
+        
+        .course_header_col img {
+            padding: 0px 0px;
+        }
+        
+        .course_btn {
+            color: #95979a;
+            border: 1px solid #95979a;
+            padding: 7px 10px;
+        }
+        
+        .course_btn:hover {
+            color: #fff;
+            border: 1px solid #fff;
+        }
+        
+        .lesson_duration {
+            border-radius: 5px;
+            padding-top: 8px;
+            color: #5C5D61;
+            font-size: 13px;
+            font-weight: 100;
+        }
+        
+        .quiz-card {
+            border: 1px solid #dcdddf !important;
+        }
+        
+        .bg-quiz-result-info {
+            background-color: #007791 !important;
+            padding: 13px !important;
+        }
+    </style>
+</head>
+
+<body class="gray-bg">
+    <div class="container-fluid course_container">
+        <!-- Top bar -->
+        <div class="row">
+            <div class="col-lg-9 course_header_col">
+                <h5>
+                    <img src="https://demo.academy-lms.com/default/uploads/system/logo-light-sm.png" height="25"> | Course Edutore Testing
+                </h5>
+            </div>
+            <div class="col-lg-3 course_header_col">
+                <a href="javascript::" class="course_btn" onclick="toggle_lesson_view()"><i class="fa fa-arrows-alt-h"></i></a>
+                <a href="" class="course_btn"> <i class="fa fa-chevron-left"></i> My courses</a>
+                <a href="" class="course_btn">Course details <i class="fa fa-chevron-right"></i></a>
+            </div>
+        </div>
+
+        <div class="row" id="lesson-container">
+            <!-- <?php if (isset($lesson_id)): ?> -->
+            <!-- Course content, video, quizes, files starts-->
+            <div class="col-lg-9  order-md-1 course_col" id="video_player_area">
+                <!-- <div class="" style="background-color: #333;"> -->
+                <div class="" style="text-align: center;">
+
+                    <!-- If the video is youtube video -->
+                    <!-- <?php if (strtolower($provider) == 'youtube'): ?> -->
+                    <!------------- PLYR.IO ------------>
+                    <link rel="stylesheet" href="assets/global/plyr/plyr.css">
+
+                    <div class="plyr__video-embed" id="player">
+                        <iframe height="500" src="https://www.youtube.com/watch?v=nSNQ_Qh9Pss?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1" allowfullscreen allowtransparency allow="autoplay"></iframe>
+                    </div>
+
+                    <script src="assets/global/plyr/plyr.js"></script>
+                    <script>
+                        const player = new Plyr('#player');
+                    </script>
+                    <!------------- PLYR.IO ------------>
+                    <!-- <?php elseif ($lesson_details['lesson_type'] == 'quiz'): ?>
+                            <div class="mt-5">
+                                <?php include 'quiz_view.php'; ?>
+                            </div>
+                        <?php else: ?>
+                            <?php if ($lesson_details['attachment_type'] == 'iframe'): ?>
+                                <div class="mt-5">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                      <iframe class="embed-responsive-item" src="<?php echo $lesson_details['attachment']; ?>" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            <?php else: ?>
+                                <div class="mt-5">
+                                    <a href="<?php echo base_url().'uploads/lesson_files/'.$lesson_details['attachment']; ?>" class="btn btn-sign-up" download style="color: #fff;">
+                                        <i class="fa fa-download" style="font-size: 20px;"></i> <?php echo get_phrase('download').' '.$lesson_details['title']; ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                        <?php endif; ?> -->
+                </div>
+
+                <div class="" style="margin: 20px 0;" id="lesson-summary">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- <h5 class="card-title"><?php echo $lesson_details['lesson_type'] == 'quiz' ? get_phrase('instruction') : get_phrase("note"); ?>:</h5> -->
+                            <h5 class="card-title">Note:</h5>
+                            <!-- <?php if ($lesson_details['summary'] == ""): ?>
+                                    <p class="card-text"><?php echo $lesson_details['lesson_type'] == 'quiz' ? get_phrase('no_instruction_found') : get_phrase("no_summary_found"); ?></p>
+                                <?php else: ?> -->
+                            <p class="card-text">The software allows users to manipulate, crop, resize, and correct color on digital photos. The software is particularly popular amongst professional photographers and graphic designers.></p>
+                            <!-- <?php endif; ?> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course content, video, quizes, files ends-->
+            <!-- <?php endif; ?> -->
+
+            <!-- Course sections and lesson selector sidebar starts-->
+            <div class="col-lg-3 mt-5 order-md-2 course_col hidden" id="lesson_list_loader" style="text-align: center;">
+                <img src="assets/backend/images/loader.gif" alt="" height="50" width="50">
+            </div>
+            <div class="col-lg-3  order-md-2 course_col" id="lesson_list_area">
+                <div class="text-center" style="margin: 12px 10px;">
+                    <h5>Course content</h5>
+                </div>
+                <div class="row" style="margin: 12px -1px">
+                    <div class="col-12">
+                        <ul class="nav nav-tabs" id="lessonTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="section_and_lessons-tab" data-toggle="tab" href="#section_and_lessons" role="tab" aria-controls="section_and_lessons" aria-selected="true">Lessons</a>
+                            </li>
+                            <!-- ZOOM LIVE CLASS TAB -->
+                            <!-- <?php if (addon_status('live-class')): ?> -->
+                            <li class="nav-item">
+                                <a class="nav-link" id="liveclass-tab" data-toggle="tab" href="#liveclass" role="tab" aria-controls="liveclass" aria-selected="false">
+                                        Live class
+                                    </a>
+                            </li>
+                            <!-- <?php endif; ?> -->
+                            <!-- ZOOM LIVE CLASS TAB -->
+
+                            <!-- CERTIFICATE TAB -->
+                            <!-- <?php if (addon_status('certificate')): ?> -->
+                            <li class="nav-item">
+                                <a class="nav-link" id="certificate-tab" data-toggle="tab" href="#certificate" role="tab" aria-controls="certificate" aria-selected="false" onclick="checkCertificateEligibility()">Certificate</a>
+                            </li>
+                            <!-- <?php endif; ?> -->
+                            <!-- CERTIFICATE TAB -->
+                        </ul>
+                        <div class="tab-content" id="lessonTabContent">
+                            <div class="tab-pane fade show active" id="section_and_lessons" role="tabpanel" aria-labelledby="section_and_lessons-tab">
+                                <!-- Lesson Content starts from here -->
+                                <div class="accordion" id="accordionExample">
+                                    <div class="card" style="margin:0px 0px;">
+                                        <div class="card-header course_card" id="1">
+
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse" data-target="#collapse-16" aria-expanded="true" aria-controls="collapse-16" style="color: #535a66; background: none; border: none; white-space: normal;" onclick="toggleAccordionIcon(this, '16')">
+                                                <h6 style="color: #959aa2; font-size: 13px;">
+                                                    Section 1
+                                                    <span style="float: right; font-weight: 100;" class="accordion_icon" id="accordion_icon_16">
+                                                                <!-- <?php if($opened_section_id == $section['id']): ?> -->
+                                                                    <i class="fa fa-minus"></i>
+                                                                <!-- <?php else: ?>
+                                                                    <i class="fa fa-plus"></i>
+                                                                <?php endif; ?> -->
+                                                            </span>
+                                                </h6>
+                                                Course Introduction - Welcome Note
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <idv id="collapse-16" class="collapse show" aria-labelledby="heading-16" data-parent="#accordionExample">
+                                            <div class="card-body" style="padding:0px;">
+                                                <table style="width: 100%;">
+                                                    <tbody>
+                                                        <tr style="width: 100%; padding: 5px 0px;background-color: #E6F2F5">
+                                                            <td style="text-align: left; padding:7px 10px;">
+                                                                <div class="form-group">
+                                                                    <input type="checkbox" id="52" onchange="markThisLessonAsCompleted(this.id);" value="1">
+                                                                    <label for="52"></label>
+                                                                </div>
+
+                                                                <a href="" id="52" style="color: #444549;font-size: 14px;font-weight: 400;">
+                                                                            1:Photoshop Introduction - What & How
+                                                                            <!-- <?php echo $key+1; ?>:
+                                                                            <?php if ($lesson['lesson_type'] != 'other'):?>
+                                                                                <?php echo $lesson['title']; ?>
+                                                                            <?php else: ?>
+                                                                                <?php echo $lesson['title']; ?>
+                                                                                <i class="fa fa-paperclip"></i>
+                                                                            <?php endif; ?> -->
+                                                                        </a>
+
+                                                                <div class="lesson_duration">
+                                                                    <!-- <?php if ($lesson['lesson_type'] == 'video' || $lesson['lesson_type'] == '' || $lesson['lesson_type'] == NULL): ?>
+                                                                                <?php //echo $lesson['duration']; ?> -->
+                                                                    <i class="far fa-play-circle"></i> 6 Min
+                                                                    <!-- <?php elseif($lesson['lesson_type'] == 'quiz'): ?>
+                                                                                <i class="far fa-question-circle"></i> Quiz
+                                                                            <?php else: ?>
+                                                                                <?php if ($lesson['attachment_type'] == 'iframe'): ?>
+                                                                                    <i class="fas fa-code"></i>  External source
+                                                                                <?php else: ?>
+                                                                                    <?php if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png' || $fileExtension == 'bmp' || $fileExtension == 'svg'): ?>
+                                                                                        <i class="fas fa-camera-retro"></i>  Attachment
+                                                                                    <?php elseif($fileExtension == 'pdf'): ?>
+                                                                                        <i class="far fa-file-pdf"></i>  Attachment
+                                                                                    <?php elseif($fileExtension == 'doc' || $fileExtension == 'docx'): ?>
+                                                                                        <i class="far fa-file-word"></i>  Attachment
+                                                                                    <?php elseif($fileExtension == 'txt'): ?>
+                                                                                        <i class="far fa-file-alt"></i>  Attachment
+                                                                                    <?php else: ?>
+                                                                                        <i class="fa fa-file"></i>  Attachment
+                                                                                    <?php endif; ?>
+                                                                                <?php endif; ?>
+                                                                            <?php endif; ?> -->
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                    <!-- <?php endforeach; ?> -->
+                                                </table>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="card" style="margin:0px 0px;">
+                                    <div class="card-header course_card" id="heading-17">
+
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse" data-target="#collapse-17" aria-expanded="false" aria-controls="collapse-17" style="color: #535a66; background: none; border: none; white-space: normal;" onclick="toggleAccordionIcon(this, '17')">
+                                                <h6 style="color: #959aa2; font-size: 13px;">
+                                                    Section 2
+                                                    <span style="float: right; font-weight: 100;" class="accordion_icon" id="accordion_icon_17">
+                                                        <i class="fa fa-plus"></i>
+                                                    </span>
+                                                </h6>
+                                                Photoshop Interface &amp; Workspace
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapse-17" class="collapse " aria-labelledby="heading-17" data-parent="#accordionExample">
+                                        <div class="card-body" style="padding:0px;">
+                                            <table style="width: 100%;">
+
+                                                <tbody>
+                                                    <tr style="width: 100%; padding: 5px 0px;background-color: #fff;">
+                                                        <td style="text-align: left; padding:7px 10px;">
+                                                            <div class="form-group">
+                                                                <input type="checkbox" id="54" onchange="markThisLessonAsCompleted(this.id);" value="1">
+                                                                <label for="54"></label>
+                                                            </div>
+
+                                                            <a href="" id="54" style="color: #444549;font-size: 14px;font-weight: 400;">
+                                                                1:Menu Run Through
+                                                            <div class="lesson_duration">
+                                                                <i class="far fa-play-circle"></i> 9 Min
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr style="width: 100%; padding: 5px 0px;background-color: #fff;">
+                                                        <td style="text-align: left; padding:7px 10px;">
+                                                            <div class="form-group">
+                                                                <input type="checkbox" id="55" onchange="markThisLessonAsCompleted(this.id);" value="1">
+                                                                <label for="55"></label>
+                                                            </div>
+
+                                                            <a href="" id="55" style="color: #444549;font-size: 14px;font-weight: 400;">
+                                                                2:Tools &amp; Fourground Colors
+                                                            <div class="lesson_duration">
+                                                                <i class="far fa-play-circle"></i> 6 Min
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr style="width: 100%; padding: 5px 0px;background-color: #fff;">
+                                                        <td style="text-align: left; padding:7px 10px;">
+                                                            <div class="form-group">
+                                                                <input type="checkbox" id="56" onchange="markThisLessonAsCompleted(this.id);" value="1">
+                                                                <label for="56"></label>
+                                                            </div>
+
+                                                            <a href="" id="56" style="color: #444549;font-size: 14px;font-weight: 400;">
+                                                                3:Blending Options
+                                                            <div class="lesson_duration">
+                                                                <i class="far fa-play-circle"></i> 6 Min
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <?php endforeach; ?> -->
+                            </div>
+                            <!-- Lesson Content ends from here -->
+                        </div>
+
+                        <!-- ZOOM LIVE CLASS TAB -->
+                        <!-- <?php if (addon_status('live-class')): ?> -->
+                        <div class="tab-pane fade" id="liveclass" role="tabpanel" aria-labelledby="liveclass-tab" style="text-align: center;">
+                                <div style="padding: 30px 0px;">
+                                    <i class="fa fa-calendar-check"></i> Live class schedule
+                                    <h5 style="margin-top: 20px;">16.00 : 11 Jan 2020</h5>
+                                    <div class="live_class_note">
+                                        Note to students
+                                    </div>
+                                    <a href="" class="btn btn_zoom" target="_blank">
+                                        <i class="fa fa-video"></i>&nbsp;
+                                        Join live video class
+                                    </a>
+                                        </div>
+                                        <!-- <?php else: ?>
+                                <div class="alert alert-warning" role="alert" style="padding: 30px 0px;">
+                                    Live class is not scheduled to this course yet
+                                </div>
+                            <?php endif; ?> -->
+                                    </div>
+
+                                    <style>
+                                        .live_class_note {
+                                            border: 1px solid #bfdde4;
+                                            background-color: aliceblue;
+                                            margin: 30px 0px 10px;
+                                            color: #007791;
+                                            font-size: 12px;
+                                            padding: 10px;
+                                        }
+                                        
+                                        .btn_zoom {
+                                            background-color: #2781FF;
+                                            border-color: #2781FF;
+                                        }
+                                        
+                                        .btn_zoom:hover {
+                                            background-color: #2781FF;
+                                            border-color: #2781FF;
+                                        }
+                                        
+                                        .btn_zoom:focus {
+                                            background-color: #2781FF;
+                                            border-color: #2781FF;
+                                        }
+                                    </style>
+                                    <!-- <?php endif; ?> -->
+                                    <!-- ZOOM LIVE CLASS TAB -->
+
+                                    <div class="tab-pane fade" id="certificate" role="tabpanel" aria-labelledby="certificate-tab" style="text-align: center;">
+
+                                        <div class="circular-progressdiv" id="course_progress_area" data-percent="50">
+                                            <svg class="circular-progress" viewport="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" style="height: 180; width: 180;">
+                                    <circle r="80" cx="89" cy="89" fill="transparent" stroke-dasharray="502.4" stroke-dashoffset="0" ></circle>
+                                    <circle class="bar" r="80" cx="89" cy="89" fill="transparent" stroke-dasharray="502.4" stroke-dashoffset="0"></circle>
+                                </svg>
+                                        </div>
+
+                                        <div class="alert alert-info" id="certificate-alert-warning" role="alert">
+                                            <h4 class="alert-heading">Notice</h4>
+                                            <hr>
+                                            <p> You have completed <span id="progression"></span>% of the course </p>
+                                            <p>You can download the course completion certificate after completing the course</p>
+                                        </div>
+
+                                        <div class="alert alert-success" id="certificate-alert-success" role="alert">
+                                            <h4 class="alert-heading">Well done</h4>
+                                            <hr>
+                                            <p>Congratulations!!!</p>
+                                            <p>You are now eligible to download the course completion certificate.</p>
+                                        </div>
+
+                                        <div id="download_certificate_area" style="padding: 15px;">
+                                            <!-- <?php if (addon_status('certificate')): ?> -->
+                                            <a href="#" target="_blank" class="btn btn-primary" id="certificate_download_btn" disabled>Get certificate</a>
+                                            <!-- <?php else: ?>
+                                    <a href="#" target="" class="btn btn-primary">Install certificate addon first</a>
+                                <?php endif; ?> -->
+                                        </div>
+
+                                    </div>
+
+                                    <!-- ZOOM LIVE CLASS TAB -->
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course sections and lesson selector sidebar ends-->
+                </div>
+            </div>
+
+            <script src="assets/frontend/default/js/vendor/modernizr-3.5.0.min.js"></script>
+            <script src="assets/frontend/default/js/vendor/jquery-3.2.1.min.js"></script>
+            <script src="assets/frontend/default/js/popper.min.js"></script>
+            <script src="assets/frontend/default/js/bootstrap.min.js"></script>
+            <script src="assets/frontend/default/js/slick.min.js"></script>
+            <script src="assets/frontend/default/js/select2.min.js"></script>
+            <script src="assets/frontend/default/js/tinymce.min.js"></script>
+            <script src="assets/frontend/default/js/multi-step-modal.js"></script>
+            <script src="assets/frontend/default/js/jquery.webui-popover.min.js"></script>
+            <script src="https://content.jwplatform.com/libraries/O7BMTay5.js"></script>
+            <script src="assets/frontend/default/js/main.js"></script>
+            <script src="assets/frontend/default/js/toastr.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.js" charset="utf-8"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
+            <script src="assets/frontend/default/js/bootstrap-tagsinput.min.js"></script>
+            <script src="assets/frontend/default/js/custom.js"></script>
+            <script src="assets/lessons/js/custom.js"></script>
+            <script>
+                function toggle_lesson_view() {
+                    $('#lesson-container').toggleClass('justify-content-center');
+                    $("#video_player_area").toggleClass("order-md-1");
+                    $("#lesson_list_area").toggleClass("col-lg-5 order-md-1");
+                }
+            </script>
+</body>
+
+</html>
